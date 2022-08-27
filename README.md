@@ -1,5 +1,6 @@
 # Stability.AI Easy Diffusion v0.1 ![visitors](https://visitor-badge.glitch.me/badge?page_id=EasyDiffusion-github&left_color=blue&right_color=orange) 
-A fork of NOP's Stable Diffusion Colab 
+
+Easy Diffusion is maintained by WASasquatch (WAS#0263) and dblunk88 (NOP#1337)
 
 ## Stablity.AI Model Terms of Use
 
