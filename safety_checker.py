@@ -72,7 +72,7 @@ class StableDiffusionSafetyChecker(PreTrainedModel):
             if has_nsfw_concept:
                 #images[idx] = np.zeros(images[idx].shape)  # black image
                 gimg = Image.fromarray(images[idx])
-                gimg = gimg.filter(ImageFilter.GaussianBlur(radius = 15)
+                gimg = gimg.filter(ImageFilter.GaussianBlur(radius = 15))
                 images[idx] = np.array(gimg)
 
         if any(has_nsfw_concepts):
