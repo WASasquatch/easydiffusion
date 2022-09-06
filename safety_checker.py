@@ -4,6 +4,7 @@ import torch
 import torch.nn as nn
 
 from transformers import CLIPConfig, CLIPVisionModel, PreTrainedModel
+from scipy.ndimage.filters import gaussian_filter
 
 from ...utils import logging
 
@@ -71,9 +72,7 @@ class StableDiffusionSafetyChecker(PreTrainedModel):
         for idx, has_nsfw_concept in enumerate(has_nsfw_concepts):
             if has_nsfw_concept:
                 #images[idx] = np.zeros(images[idx].shape)  # black image
-                gimg = Image.fromarray(images[idx])
-                gimg = gimg.filter(ImageFilter.GaussianBlur(radius = 15))
-                images[idx] = np.array(gimg)
+                images[idx] = gaussian_filter(images[idx], sigma=15)
 
         if any(has_nsfw_concepts):
             logger.warning(
