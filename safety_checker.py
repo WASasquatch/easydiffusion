@@ -72,7 +72,9 @@ class StableDiffusionSafetyChecker(PreTrainedModel):
         for idx, has_nsfw_concept in enumerate(has_nsfw_concepts):
             if has_nsfw_concept:
                 #images[idx] = np.zeros(images[idx].shape)  # black image
-                images[idx] = gaussian_filter(images[idx], sigma=15)
+                fimg = images[idx].astype(np.float64)
+                fimg = gaussian_filter(fimg, sigma=15)
+                images[idx] = fimg.astype(images[idx].dtype)
 
         if any(has_nsfw_concepts):
             logger.warning(
