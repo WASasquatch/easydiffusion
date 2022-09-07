@@ -4,10 +4,6 @@ import torch.nn as nn
 
 from transformers import CLIPConfig, CLIPVisionModel, PreTrainedModel
 
-from scipy.ndimage.filters import gaussian_filter
-from PIL import Image, ImageFilter
-import cv2 as cv
-
 from ...utils import logging
 
 
