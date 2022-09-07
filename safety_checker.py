@@ -77,7 +77,10 @@ class StableDiffusionSafetyChecker(PreTrainedModel):
                 #fimg = images[idx].astype(np.float64)
                 #fimg = gaussian_filter(fimg, sigma=15)
                 #images[idx] = fimg.astype(images[idx].dtype)
+                dtype = images[idx].dtype
+                images[idx] = images[idx].astype(np.uint8)
                 images[idx] = cv.GaussianBlur(images[idx],(15,15),0)
+                images[idx] = images[idx].astype(dtype)
                 
         if any(has_nsfw_concepts):
             logger.warning(
