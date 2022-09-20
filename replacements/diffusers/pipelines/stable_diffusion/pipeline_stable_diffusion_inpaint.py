@@ -141,10 +141,10 @@ class StableDiffusionInpaintPipeline(DiffusionPipeline):
     def __call__(
         self,
         prompt: Union[str, List[str]],
-        negative_prompt: Optional[Union[str, List[str]]] = None,
         init_image: Union[torch.FloatTensor, PIL.Image.Image],
         mask_image: Union[torch.FloatTensor, PIL.Image.Image],
         strength: float = 0.8,
+        negative_prompt: Optional[Union[str, List[str]]] = None,
         num_inference_steps: Optional[int] = 50,
         guidance_scale: Optional[float] = 7.5,
         eta: Optional[float] = 0.0,
@@ -158,8 +158,6 @@ class StableDiffusionInpaintPipeline(DiffusionPipeline):
         Args:
             prompt (`str` or `List[str]`):
                 The prompt or prompts to guide the image generation.
-            negative_prompt (`str` or `List[str]`, *optional*):
-                The prompt or prompts not to guide the image generation.
             init_image (`torch.FloatTensor` or `PIL.Image.Image`):
                 `Image`, or tensor representing an image batch, that will be used as the starting point for the
                 process. This is the image whose masked region will be inpainted.
@@ -173,6 +171,8 @@ class StableDiffusionInpaintPipeline(DiffusionPipeline):
                 is 1, the denoising process will be run on the masked area for the full number of iterations specified
                 in `num_inference_steps`. `init_image` will be used as a reference for the masked area, adding more
                 noise to that region the larger the `strength`. If `strength` is 0, no inpainting will occur.
+            negative_prompt (`str` or `List[str]`, *optional*):
+                The prompt or prompts not to guide the image generation.
             num_inference_steps (`int`, *optional*, defaults to 50):
                 The reference number of denoising steps. More denoising steps usually lead to a higher quality image at
                 the expense of slower inference. This parameter will be modulated by `strength`, as explained above.
