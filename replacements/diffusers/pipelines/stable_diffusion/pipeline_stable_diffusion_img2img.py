@@ -124,9 +124,9 @@ class StableDiffusionImg2ImgPipeline(DiffusionPipeline):
         prompt: Union[str, List[str]],
         init_image: Union[torch.FloatTensor, PIL.Image.Image],
         strength: float = 0.8,
-        negative_prompt: Optional[Union[str, List[str]]] = None,
         num_inference_steps: Optional[int] = 50,
         guidance_scale: Optional[float] = 7.5,
+        negative_prompt: Optional[Union[str, List[str]]] = None,
         eta: Optional[float] = 0.0,
         generator: Optional[torch.Generator] = None,
         output_type: Optional[str] = "pil",
@@ -147,8 +147,6 @@ class StableDiffusionImg2ImgPipeline(DiffusionPipeline):
                 number of denoising steps depends on the amount of noise initially added. When `strength` is 1, added
                 noise will be maximum and the denoising process will run for the full number of iterations specified in
                 `num_inference_steps`. A value of 1, therefore, essentially ignores `init_image`.
-            negative_prompt (`str` or `List[str]`, *optional*):
-                The prompt or prompts not to guide the image generation.
             num_inference_steps (`int`, *optional*, defaults to 50):
                 The number of denoising steps. More denoising steps usually lead to a higher quality image at the
                 expense of slower inference. This parameter will be modulated by `strength`.
@@ -158,6 +156,8 @@ class StableDiffusionImg2ImgPipeline(DiffusionPipeline):
                 Paper](https://arxiv.org/pdf/2205.11487.pdf). Guidance scale is enabled by setting `guidance_scale >
                 1`. Higher guidance scale encourages to generate images that are closely linked to the text `prompt`,
                 usually at the expense of lower image quality.
+            negative_prompt (`str` or `List[str]`, *optional*):
+                The prompt or prompts not to guide the image generation.
             eta (`float`, *optional*, defaults to 0.0):
                 Corresponds to parameter eta (η) in the DDIM paper: https://arxiv.org/abs/2010.02502. Only applies to
                 [`schedulers.DDIMScheduler`], will be ignored for others.
