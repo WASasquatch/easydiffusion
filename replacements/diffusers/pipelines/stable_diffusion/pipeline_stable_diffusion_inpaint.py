@@ -83,7 +83,7 @@ class StableDiffusionInpaintPipeline(DiffusionPipeline):
         feature_extractor: CLIPFeatureExtractor,
     ):
         super().__init__()
-        scheduler = scheduler.set_format("pt")
+        #scheduler = scheduler.set_format("pt")
         logger.info("`StableDiffusionInpaintPipeline` is experimental and will very likely change in the future.")
 
         if hasattr(scheduler.config, "steps_offset") and scheduler.config.steps_offset != 1:
