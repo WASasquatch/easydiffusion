@@ -1,6 +1,6 @@
 # Stability.AI Easy Diffusion ![visitors](https://visitor-badge.glitch.me/badge?page_id=EasyDiffusion-github&left_color=blue&right_color=orange) 
 
-Easy Diffusion is maintained by WASasquatch (WAS#0263) and dblunk88 (NOP#1337)
+Easy Diffusion is maintained by WASasquatch (WAS#0263)
 
 ## Stablity.AI Model Terms of Use
 
