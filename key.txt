@@ -1,1 +1,1 @@
-EasyDiffusioN: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
+EasyDiffusion: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
