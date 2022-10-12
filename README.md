@@ -13,6 +13,7 @@ Stability.AI Easy Diffusion is a Google Colab Notebook designed to be a relative
 - Stable Diffusion Concept support
 - Use local, or remote init images or mask images. 
 - Use a text file of init images, masks, or prompts to do batches.
+  - `PROMPT_FILE` - Supports line repetition (useful with NSP or random prompts). Use `^#|` at the beginning of your prompt line to define how many times a line should repeat. For example `^5|A cat on a park bench| would repeat `A cat on a park bench` for 5 batches and X iterations. 
 - [Noodle Soup Prompts](https://github.com/WASasquatch/noodle-soup-prompts) support for prompts.
 - Random word support in `[word1|word2|word3]` syntax, or multiple words in `[^#|word1|word2|word3] format, where `#` is a number determining how many random words from the list to use.
 - Negative prompt support built into normal prompts, denote negative prompts at the end of your prompt with `--`. For example `Positive prompt here--Negative prompt here`
